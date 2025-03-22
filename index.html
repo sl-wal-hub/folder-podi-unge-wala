@@ -40,6 +40,14 @@
     <div class="footer">© 2025 WalHub. All rights reserved.</div>
 
     <script>
+    // Remove unlock status on page load
+    window.onload = function() {
+        if (!sessionStorage.getItem("linkClicked")) {
+            sessionStorage.removeItem("unlocked");
+        }
+        checkUnlockState();
+    };
+
     // Check unlock state
     function checkUnlockState() {
         let unlocked = sessionStorage.getItem("unlocked");
@@ -56,22 +64,9 @@
         }
     }
 
-    // On page load, check unlock status
-    window.onload = function() {
-        checkUnlockState();
-    };
-
     // Share Button Click
     document.getElementById("shareBtn").addEventListener("click", function() {
         let shareMessage = encodeURIComponent(
-            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
-            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/\n\n" +
-            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
-            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/\n\n" +
-            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
-            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/\n\n" +
-            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
-            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/\n\n" +
             "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
             "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/"
         );
@@ -90,6 +85,7 @@
     document.querySelectorAll(".unlock-link").forEach(link => {
         link.addEventListener("click", function() {
             sessionStorage.setItem("unlocked", "true");
+            sessionStorage.setItem("linkClicked", "true");
         });
     });
 
