@@ -80,12 +80,24 @@
         });
     });
 
-    // If the user comes back and had clicked a link, keep it unlocked
-    if (localStorage.getItem("unlocked") === "true") {
-        document.getElementById("linksContainer").style.display = "block";
-        document.getElementById("shareBtn").textContent = "✅ Done!";
-        document.getElementById("shareBtn").classList.remove("locked");
-        document.getElementById("shareBtn").style.cursor = "default";
+    // Ensure unlocking logic works correctly
+    function checkUnlockState() {
+        if (localStorage.getItem("unlocked") === "true") {
+            document.getElementById("linksContainer").style.display = "block";
+            document.getElementById("shareBtn").textContent = "✅ Done!";
+            document.getElementById("shareBtn").classList.remove("locked");
+            document.getElementById("shareBtn").style.cursor = "default";
+        } else {
+            document.getElementById("linksContainer").style.display = "none";
+            document.getElementById("shareBtn").textContent = "🔒 Share to WhatsApp";
+            document.getElementById("shareBtn").classList.add("locked");
+            document.getElementById("shareBtn").style.cursor = "pointer";
+        }
+    }
+
+    // Reset state on refresh
+    window.onload = function() {
+        checkUnlockState();
     }
     </script>
 
