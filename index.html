@@ -25,7 +25,7 @@
     </div>
 
     <!-- Separate Square for Traffic & Links -->
-    <div class="links-container" id="linksContainer">
+    <div class="links-container" id="linksContainer" style="display: none;">
         <!-- Description -->
         <h2 class="video-header">පහලින් Video ටික බලන්න</h2>
 
@@ -33,10 +33,10 @@
 
         <!-- Link Buttons -->
         <div class="link-buttons">
-            <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn">LINK 1</a>
-            <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn">LINK 2</a>
-            <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn">LINK 3</a>
-            <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn">LINK 4</a>
+            <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn unlock-link">LINK 1</a>
+            <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn unlock-link">LINK 2</a>
+            <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn unlock-link">LINK 3</a>
+            <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn unlock-link">LINK 4</a>
         </div>
     </div>
 
@@ -45,39 +45,48 @@
     </div>
 
     <script>
-    // Function to check if links should be shown
-    function checkUnlockStatus() {
-        if (sessionStorage.getItem("unlocked") === "true") {
-            document.getElementById("linksContainer").style.display = "block";
-            document.getElementById("shareBtn").textContent = "✅ Done!";
-            document.getElementById("shareBtn").classList.remove("locked");
-            document.getElementById("shareBtn").style.cursor = "default";
-        }
-    }
-
-    // Check status on page load
-    checkUnlockStatus();
-
     document.getElementById("shareBtn").addEventListener("click", function() {
-        let shareMessage = encodeURIComponent("WalHub එකෙන් නවතම වීඩියෝ බලන්න! 🔥");
+        let shareMessage = encodeURIComponent(
+            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
+            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/\n\n" +
+            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
+            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/\n\n" +
+            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
+            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/\n\n" +
+            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
+            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/\n\n" +
+            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
+            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/"
+        );
+
         let whatsappUrl = "https://api.whatsapp.com/send?text=" + shareMessage;
         window.open(whatsappUrl, "_blank");
 
-        // Change button text & style after sharing
+        // Show links after sharing
         setTimeout(function() {
             document.getElementById("shareBtn").textContent = "✅ Done!";
             document.getElementById("shareBtn").classList.remove("locked");
             document.getElementById("shareBtn").style.cursor = "default";
 
-            // Save unlock state in sessionStorage
-            sessionStorage.setItem("unlocked", "true");
-
-            // Show links in separate square after 3 sec
-            setTimeout(function() {
-                document.getElementById("linksContainer").style.display = "block";
-            }, 3000);
+            // Show links in separate square
+            document.getElementById("linksContainer").style.display = "block";
         }, 3000);
     });
+
+    // If the user clicks a link, store the unlock status in localStorage
+    document.querySelectorAll(".unlock-link").forEach(link => {
+        link.addEventListener("click", function() {
+            localStorage.setItem("unlocked", "true");
+        });
+    });
+
+    // If the user comes back and had clicked a link, keep it unlocked
+    if (localStorage.getItem("unlocked") === "true") {
+        document.getElementById("linksContainer").style.display = "block";
+        document.getElementById("shareBtn").textContent = "✅ Done!";
+        document.getElementById("shareBtn").classList.remove("locked");
+        document.getElementById("shareBtn").style.cursor = "default";
+    }
     </script>
 
 </body>
