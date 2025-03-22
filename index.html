@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WalHub</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Linking CSS File -->
+</head>
+<body>
+
+    <div class="container">
+        <!-- WalHub Header -->
+        <div class="walhub-header">
+            <h1>
+                <span class="wal">Wal</span>
+                <span class="hub">Hub</span>
+            </h1>
+            <hr class="gradient-line">
+        </div>
+
+        <!-- Updated Paragraphs with Correct Color & Size -->
+        <p class="info-text">පහල Share To Whatsapp Button එක Click කරලා Group 3 කට Share කරලා Link එක Unlock කරගන්න</p>
+
+        <button id="shareBtn" class="share-btn locked">🔒 Share to WhatsApp</button>
+    </div>
+
+    <!-- Separate Square for Traffic & Links -->
+    <div class="links-container" id="linksContainer">
+        <!-- Description -->
+        <h2 class="video-header">පහලින් Video ටික බලන්න</h2>
+
+        <p class="info-text">Site එකේ Traffic වැඩි නිසා සමහර වෙලාවට Link වැඩ නෑ, ඒ නිසා Link 4ම Check කරන්න</p>
+
+        <!-- Link Buttons -->
+        <div class="link-buttons">
+            <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn">LINK 1</a>
+            <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn">LINK 2</a>
+            <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn">LINK 3</a>
+            <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn">LINK 4</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2025 WalHub. All rights reserved.
+    </div>
+
+    <script>
+    // Function to check if links should be shown
+    function checkUnlockStatus() {
+        if (sessionStorage.getItem("unlocked") === "true") {
+            document.getElementById("linksContainer").style.display = "block";
+            document.getElementById("shareBtn").textContent = "✅ Done!";
+            document.getElementById("shareBtn").classList.remove("locked");
+            document.getElementById("shareBtn").style.cursor = "default";
+        }
+    }
+
+    // Check status on page load
+    checkUnlockStatus();
+
+    document.getElementById("shareBtn").addEventListener("click", function() {
+        let shareMessage = encodeURIComponent("WalHub එකෙන් නවතම වීඩියෝ බලන්න! 🔥");
+        let whatsappUrl = "https://api.whatsapp.com/send?text=" + shareMessage;
+        window.open(whatsappUrl, "_blank");
+
+        // Change button text & style after sharing
+        setTimeout(function() {
+            document.getElementById("shareBtn").textContent = "✅ Done!";
+            document.getElementById("shareBtn").classList.remove("locked");
+            document.getElementById("shareBtn").style.cursor = "default";
+
+            // Save unlock state in sessionStorage
+            sessionStorage.setItem("unlocked", "true");
+
+            // Show links in separate square after 3 sec
+            setTimeout(function() {
+                document.getElementById("linksContainer").style.display = "block";
+            }, 3000);
+        }, 3000);
+    });
+    </script>
+
+</body>
+</html>
