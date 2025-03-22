@@ -18,20 +18,17 @@
             <hr class="gradient-line">
         </div>
 
-        <!-- Updated Paragraphs with Correct Color & Size -->
+        <!-- Share Instruction -->
         <p class="info-text">පහල Share To Whatsapp Button එක Click කරලා Group 3 කට Share කරලා Link එක Unlock කරගන්න</p>
 
         <button id="shareBtn" class="share-btn locked">🔒 Share to WhatsApp</button>
     </div>
 
-    <!-- Separate Square for Traffic & Links -->
+    <!-- Links Section (Initially Hidden) -->
     <div class="links-container" id="linksContainer" style="display: none;">
-        <!-- Description -->
         <h2 class="video-header">පහලින් Video ටික බලන්න</h2>
-
         <p class="info-text">Site එකේ Traffic වැඩි නිසා සමහර වෙලාවට Link වැඩ නෑ, ඒ නිසා Link 4ම Check කරන්න</p>
 
-        <!-- Link Buttons -->
         <div class="link-buttons">
             <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn unlock-link">LINK 1</a>
             <a href="https://humiliatesmug.com/dcf7x23r83?key=2ac6355133543eecf956d375da68f7b6" class="link-btn unlock-link">LINK 2</a>
@@ -40,11 +37,31 @@
         </div>
     </div>
 
-    <div class="footer">
-        © 2025 WalHub. All rights reserved.
-    </div>
+    <div class="footer">© 2025 WalHub. All rights reserved.</div>
 
     <script>
+    // Check unlock state
+    function checkUnlockState() {
+        let unlocked = sessionStorage.getItem("unlocked");
+        if (unlocked === "true") {
+            document.getElementById("linksContainer").style.display = "block";
+            document.getElementById("shareBtn").textContent = "✅ Done!";
+            document.getElementById("shareBtn").classList.remove("locked");
+            document.getElementById("shareBtn").style.cursor = "default";
+        } else {
+            document.getElementById("linksContainer").style.display = "none";
+            document.getElementById("shareBtn").textContent = "🔒 Share to WhatsApp";
+            document.getElementById("shareBtn").classList.add("locked");
+            document.getElementById("shareBtn").style.cursor = "pointer";
+        }
+    }
+
+    // On page load, check unlock status
+    window.onload = function() {
+        checkUnlockState();
+    };
+
+    // Share Button Click
     document.getElementById("shareBtn").addEventListener("click", function() {
         let shareMessage = encodeURIComponent(
             "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
@@ -62,43 +79,20 @@
         let whatsappUrl = "https://api.whatsapp.com/send?text=" + shareMessage;
         window.open(whatsappUrl, "_blank");
 
-        // Show links after sharing
+        // Unlock after sharing
         setTimeout(function() {
-            document.getElementById("shareBtn").textContent = "✅ Done!";
-            document.getElementById("shareBtn").classList.remove("locked");
-            document.getElementById("shareBtn").style.cursor = "default";
-
-            // Show links in separate square
-            document.getElementById("linksContainer").style.display = "block";
+            sessionStorage.setItem("unlocked", "true");
+            checkUnlockState();
         }, 3000);
     });
 
-    // If the user clicks a link, store the unlock status in localStorage
+    // Clicking any link keeps the page unlocked
     document.querySelectorAll(".unlock-link").forEach(link => {
         link.addEventListener("click", function() {
-            localStorage.setItem("unlocked", "true");
+            sessionStorage.setItem("unlocked", "true");
         });
     });
 
-    // Ensure unlocking logic works correctly
-    function checkUnlockState() {
-        if (localStorage.getItem("unlocked") === "true") {
-            document.getElementById("linksContainer").style.display = "block";
-            document.getElementById("shareBtn").textContent = "✅ Done!";
-            document.getElementById("shareBtn").classList.remove("locked");
-            document.getElementById("shareBtn").style.cursor = "default";
-        } else {
-            document.getElementById("linksContainer").style.display = "none";
-            document.getElementById("shareBtn").textContent = "🔒 Share to WhatsApp";
-            document.getElementById("shareBtn").classList.add("locked");
-            document.getElementById("shareBtn").style.cursor = "pointer";
-        }
-    }
-
-    // Reset state on refresh
-    window.onload = function() {
-        checkUnlockState();
-    }
     </script>
 
 </body>
