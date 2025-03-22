@@ -59,7 +59,19 @@
     checkUnlockStatus();
 
     document.getElementById("shareBtn").addEventListener("click", function() {
-        let shareMessage = encodeURIComponent("WalHub එකෙන් නවතම වීඩියෝ බලන්න! 🔥");
+        let shareMessage = encodeURIComponent(
+            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
+            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/\n\n" +
+            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
+            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/\n\n" +
+            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
+            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/\n\n" +
+            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
+            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/\n\n" +
+            "*පොඩි උන්ගෙ වැල 4000 ක Pack එකක් 💯 Free* \n\n" +
+            "Link: https://sl-wal-hub.github.io/folder-podi-unge-wala/"
+        );
+
         let whatsappUrl = "https://api.whatsapp.com/send?text=" + shareMessage;
         window.open(whatsappUrl, "_blank");
 
