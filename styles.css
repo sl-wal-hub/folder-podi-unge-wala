@@ -1,0 +1,127 @@
+body {
+    background-color: #000 !important;
+    color: white !important;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.container, .links-container {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto 20px;
+}
+
+.walhub-header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.walhub-header .wal {
+    color: #fff;
+}
+
+.walhub-header .hub {
+    background-color: #ff9900;
+    color: black;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.gradient-line {
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #ff9900, transparent);
+    border: none;
+    margin: 15px auto;
+}
+
+.info-text {
+    font-size: 16px;
+    color: #ccc;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.share-btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 250px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: black !important;
+    background: #ff9900 !important;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0px 3px 8px rgba(255, 153, 0, 0.5);
+    transition: 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.share-btn:hover {
+    transform: scale(1.05);
+    background: #ffcc00 !important;
+    box-shadow: 0px 5px 12px rgba(255, 204, 0, 0.7);
+}
+
+.locked {
+    background: #444 !important;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.links-container {
+    display: none;
+}
+
+.video-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff9900;
+    margin-bottom: 8px;
+}
+
+.link-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.link-btn {
+    display: inline-block;
+    width: 100px;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000 !important;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    background: #ff9900 !important;
+    box-shadow: 0px 3px 8px rgba(255, 153, 0, 0.5);
+    transition: 0.3s ease-in-out;
+}
+
+.link-btn:hover {
+    transform: scale(1.1);
+    background: #ffcc00 !important;
+    box-shadow: 0px 5px 12px rgba(255, 204, 0, 0.7);
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 10px;
+    color: #777;
+}
